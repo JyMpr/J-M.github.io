@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>J&M AC</title>
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="test.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="index.js" defer></script>
+  <script src="test.js" defer></script>
 </head>
 <body>
   <audio id="click-sound" src="./media/click.mp3" preload="auto"></audio>
@@ -29,32 +29,32 @@
       </div>
       <div class="socials">
         <a href="https://steamcommunity.com/profiles/76561199484479437/" target="_blank">
-            <div class="social-icon">
+            <div class="social-icon" data-comment="Es de donde venis gordito.">
               <i class="fab fa-steam"></i>
               <span class="tooltip">Steam</span>
             </div>
           </a>
           
           <a href="https://www.youtube.com/@Javinetssss" target="_blank">
-            <div class="social-icon">
+            <div class="social-icon" data-comment="Fijate si salis vos horrendo.">
               <i class="fab fa-youtube"></i>
               <span class="tooltip">YouTube</span>
             </div>
           </a>
           <a href="https://open.spotify.com/" target="_blank">
-            <div class="social-icon">
+            <div class="social-icon" data-comment="Dejame un temita en los coments.">
               <i class="fab fa-spotify"></i>
               <span class="tooltip">Spotify</span>
             </div>
           </a>
           <a href="https://discord.com/nahue9" target="_blank">
-            <div class="social-icon">
+            <div class="social-icon" data-comment="Mi discord es nahue9.">
               <i class="fab fa-discord"></i>
               <span class="tooltip">nahue9</span>
             </div>
           </a>
         <a href="https://gamersclub.com.br/player/2290267" target="_blank">
-            <div class="social-icon">
+            <div class="social-icon" data-comment="Premier para los burros.">
               <img src="./media/logoGC.png" alt="GamersClub" class="gc-icon">
               <span class="tooltip">GamersClub</span>
             </div>
@@ -101,12 +101,42 @@
 
   
 
-  <div id="contador-visitas">
-    <svg class="icono-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-      <circle cx="12" cy="12" r="2.5"/>
-    </svg>
-    <span id="numero-visitas">Visitas: 0</span>
-  </div>
+<div id="contador-visitas">
+  <svg class="ojo-svg" viewBox="0 0 100 100">
+    <circle class="iris" cx="50" cy="50" r="30" fill="#8a2be2" />
+    <circle class="pupila" cx="50" cy="50" r="10" fill="#d1aaff" />
+  </svg>
+  <span id="numero-visitas">Visitas: 0</span>
+</div>
+
+<div class="comment-box" id="commentBox">
+  <p id="commentText"></p>
+</div>
+
+
+<script>
+  const ojo = document.querySelector('.ojo-svg');
+  const pupila = ojo.querySelector('.pupila');
+
+  document.addEventListener('mousemove', (e) => {
+    const rect = ojo.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const deltaX = e.clientX - centerX;
+    const deltaY = e.clientY - centerY;
+
+    const angle = Math.atan2(deltaY, deltaX);
+    const distance = Math.min(8, Math.hypot(deltaX, deltaY) / 15); // Máx 8px de desplazamiento
+
+    const offsetX = Math.cos(angle) * distance;
+    const offsetY = Math.sin(angle) * distance;
+
+    pupila.setAttribute('cx', 50 + offsetX);
+    pupila.setAttribute('cy', 50 + offsetY);
+  });
+</script>
+
+
 </body>
 </html>
