@@ -10,17 +10,17 @@
   <script src="index.js" defer></script>
 </head>
 <body>
-  <audio id="click-sound" src="media/click.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="./media/click.mp3" preload="auto"></audio>
 
   <video autoplay muted loop id="background-video">
-    <source src="media/Fondo.mp4" type="video/mp4">
+    <source src="./media/Fondo.mp4" type="video/mp4">
     Tu navegador no soporta videos HTML5.
   </video>
 
   <div class="profile-container">
     <div class="info-box">
       <div class="top-section">
-        <img src="media/Imagendefern.jpg" alt="Foto de perfil" />
+        <img src="./media/Imagendefern.jpg" alt="Foto de perfil" />
         <h1>J&amp;M AC</h1>
       </div>
       <div class="location">
@@ -55,13 +55,13 @@
           </a>
         <a href="https://gamersclub.com.br/player/2290267" target="_blank">
             <div class="social-icon">
-              <img src="media/logoGC.png" alt="GamersClub" class="gc-icon">
+              <img src="./media/logoGC.png" alt="GamersClub" class="gc-icon">
               <span class="tooltip">GamersClub</span>
             </div>
           </a>
       </div>
       <div class="music-player">
-        <img src="media/Dukialbum.png" alt="Album cover">
+        <img src="./media/Dukialbum.png" alt="Album cover">
         <div class="music-info">
           <p class="song-title">Cine - Duki</p>
           <div class="volume-bar">
@@ -71,7 +71,7 @@
       </div>
       
 
-  <audio id="bg-music" src="media/Dukimp3.mp4" autoplay loop></audio>
+  <audio id="bg-music" src="./media/Dukimp3.mp4" autoplay loop></audio>
 
   <script>
     const audio = document.getElementById('bg-music');
@@ -81,7 +81,7 @@
       audio.volume = volumeSlider.value / 100;
     });
   </script>
-  <audio id="hover-sound" src="media/desplazamientops4.mp4" preload="auto"></audio>
+  <audio id="hover-sound" src="./media/desplazamientops4.mp4" preload="auto"></audio>
 <script>
   const sound = document.getElementById('hover-sound');
   const icons = document.querySelectorAll('.socials i, .gc-icon');
@@ -94,9 +94,9 @@
   });
 </script>
 
-<a href="media/zekei.png" target="_blank" class="location-box">
+<a href="./media/zekei.png" target="_blank" class="location-box">
   ¿Dónde vivo?
-  <img src="media/zekei.png" alt="Imagen de ubicación" class="location-img">
+  <img src="./media/zekei.png" alt="Imagen de ubicación" class="location-img">
 </a>
 
   
