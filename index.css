@@ -300,10 +300,26 @@ body, html {
 }
 
 .icono-svg {
-  width: 22px;
-  height: 22px;
-  animation: bouncing 1s infinite;
+  width: 28px;
+  height: 28px;
+  animation: bouncing 1s infinite, glowingAura 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 6px #8a2be2) drop-shadow(0 0 12px rgba(138, 43, 226, 0.4));
+  fill: #d1aaff;
+  transition: transform 0.3s ease;
 }
+
+@keyframes glowingAura {
+  0% {
+    filter: drop-shadow(0 0 4px #8a2be2) drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #8a2be2) drop-shadow(0 0 18px rgba(138, 43, 226, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 0 4px #8a2be2) drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+  }
+}
+
 
 @keyframes bouncing {
   0% { transform: translateY(0); }
@@ -344,10 +360,75 @@ body, html {
   transform: translateX(-50%) scale(0.8);
   opacity: 0;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  width: 250px; /* Puedes ajustar el tamaño de la imagen según tus necesidades */
+  width: 250px; 
 }
 
 .location-box:hover .location-img {
   opacity: 1;
   transform: translateX(-50%) scale(1);
+}
+
+.ojo-svg {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 4px #8a2be2) drop-shadow(0 0 8px rgba(138, 43, 226, 0.4));
+  animation: glowingAura 2s infinite ease-in-out, blink 6s infinite;
+  cursor: pointer;
+  transition: transform 0.1s ease; /* Animación de aura */
+}
+
+@keyframes glowingAura {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px #8a2be2) drop-shadow(0 0 8px rgba(138, 43, 226, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #8a2be2) drop-shadow(0 0 20px rgba(138, 43, 226, 0.6));
+  }
+}
+
+/* Animación de parpadeo más realista */
+@keyframes blink {
+  0%, 100% {
+    transform: scaleY(1); /* Ojo abierto */
+  }
+  50% {
+    transform: scaleY(0); /* Cierra de arriba hacia abajo */
+  }
+}
+
+/* Transiciones para el iris y la pupila */
+.iris {
+  transition: transform 0.3s ease; /* Esta transición aplica para el iris */
+}
+
+.pupila {
+  transition: transform 0.1s ease; /* Esta transición aplica para la pupila */
+}
+
+.comment-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-60px); /* Colocarlo sobre el ojo */
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #d1aaff;
+  font-size: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Estilo para las redes sociales */
+.social-icon {
+  font-size: 2.2rem;
+  color: #8a2be2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
 }
