@@ -52,5 +52,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Función para mostrar comentario
+function showComment(comment) {
+  commentText.textContent = comment;
+  commentBox.style.opacity = 1;
+  commentBox.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    commentBox.style.opacity = 0;
+  }, 3000); // El comentario desaparece después de 3 segundos
+}
 
-
+// Agregar eventos de hover a las redes sociales
+document.querySelectorAll('.social-icon').forEach(icon => {
+  icon.addEventListener('mouseenter', function () {
+    const comment = icon.getAttribute('data-comment');
+    showComment(comment);
+  });
+});
