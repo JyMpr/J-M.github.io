@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J&M AC</title>
+  <link rel="stylesheet" href="test.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="test.js" defer></script>
+</head>
+<body>
+  <audio id="click-sound" src="media/click.mp3" preload="auto"></audio>
+
+  <video autoplay muted loop id="background-video">
+    <source src="media/Fondo.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+  </video>
+
+  <div class="profile-container">
+    <div class="info-box">
+      <div class="top-section">
+        <img src="media/Imagendefern.jpg" alt="Foto de perfil" />
+        <h1>J&amp;M AC</h1>
+      </div>
+      <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Somewhere in Argentina</span>
+      </div>
+      <div class="socials">
+        <a href="https://steamcommunity.com/profiles/76561199484479437/" target="_blank">
+            <div class="social-icon">
+              <i class="fab fa-steam"></i>
+              <span class="tooltip">Steam</span>
+            </div>
+          </a>
+          
+          <a href="https://www.youtube.com/@Javinetssss" target="_blank">
+            <div class="social-icon">
+              <i class="fab fa-youtube"></i>
+              <span class="tooltip">YouTube</span>
+            </div>
+          </a>
+          <a href="https://open.spotify.com/" target="_blank">
+            <div class="social-icon">
+              <i class="fab fa-spotify"></i>
+              <span class="tooltip">Spotify</span>
+            </div>
+          </a>
+          <a href="https://discord.com/nahue9" target="_blank">
+            <div class="social-icon">
+              <i class="fab fa-discord"></i>
+              <span class="tooltip">nahue9</span>
+            </div>
+          </a>
+        <a href="https://gamersclub.com.br/player/2290267" target="_blank">
+            <div class="social-icon">
+              <img src="media/logoGC.png" alt="GamersClub" class="gc-icon">
+              <span class="tooltip">GamersClub</span>
+            </div>
+          </a>
+      </div>
+      <div class="music-player">
+        <img src="media/Dukialbum.png" alt="Album cover">
+        <div class="music-info">
+          <p class="song-title">Cine - Duki</p>
+          <div class="volume-bar">
+            <input type="range" min="0" max="100" value="50" id="volume-slider">
+          </div>
+        </div>
+      </div>
+      
+
+  <audio id="bg-music" src="media/Dukimp3.mp4" autoplay loop></audio>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const volumeSlider = document.getElementById('volume-slider');
+    audio.volume = volumeSlider.value / 100;
+    volumeSlider.addEventListener('input', () => {
+      audio.volume = volumeSlider.value / 100;
+    });
+  </script>
+  <audio id="hover-sound" src="media/desplazamientops4.mp4" preload="auto"></audio>
+<script>
+  const sound = document.getElementById('hover-sound');
+  const icons = document.querySelectorAll('.socials i, .gc-icon');
+
+  icons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      sound.currentTime = 0;
+      sound.play();
+    });
+  });
+</script>
+
+<a href="media/zekei.png" target="_blank" class="location-box">
+  ¿Dónde vivo?
+  <img src="media/zekei.png" alt="Imagen de ubicación" class="location-img">
+</a>
+
+  
+
+  <div id="contador-visitas">
+    <svg class="icono-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+      <circle cx="12" cy="12" r="2.5"/>
+    </svg>
+    <span id="numero-visitas">Visitas: 0</span>
+  </div>
+</body>
+</html>

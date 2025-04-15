@@ -1,0 +1,353 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  filter: blur(7px) brightness(0.5);
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 2rem;
+}
+
+.info-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 3rem;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 30px 15px rgba(128, 0, 128, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 1000px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: popIn 1s ease-out forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes popIn {
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.top-section img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid white;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInTop 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.top-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #8a2be2;
+  text-shadow: 0 0 12px rgba(128, 0, 128, 0.6);
+  transition: transform 0.3s;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInTop 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInTop {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.location i {
+  color: #c58aff;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.social-icon {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.social-icon:nth-child(1) {
+  animation-delay: 0.2s;
+  transform: translateX(-50px);
+}
+.social-icon:nth-child(2) {
+  animation-delay: 0.4s;
+  transform: translateY(50px);
+}
+.social-icon:nth-child(3) {
+  animation-delay: 0.6s;
+  transform: translateX(50px);
+}
+.social-icon:nth-child(4) {
+  animation-delay: 0.8s;
+  transform: translateY(-50px);
+}
+.social-icon:nth-child(5) {
+  animation-delay: 1s;
+  transform: scale(0.5);
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+  }
+}
+
+.socials i {
+  font-size: 2.2rem;
+  color: #8a2be2;
+  text-shadow: 0 0 12px rgba(128, 0, 128, 0.6);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.socials i:hover {
+  transform: scale(1.2);
+}
+
+/* Efecto hover morado en el reproductor de música */
+.music-player {
+  margin-top: 2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 0 25px 12px rgba(128, 0, 128, 0.2);
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInMusicPlayer 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+@keyframes fadeInMusicPlayer {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.music-player img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.volume-bar {
+  flex-grow: 1;
+}
+
+.volume-bar input {
+  width: 100%;
+}
+
+.music-player:hover {
+  box-shadow: 0 0 20px 10px rgba(138, 43, 226, 0.6);
+  transform: translateY(0) scale(1.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: black;
+  color: #a259ff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 0 8px rgba(128, 0, 128, 0.3);
+}
+
+.social-icon {
+  position: relative;
+}
+
+.social-icon:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.song-title {
+  font-size: 1.1rem;
+  color: #d1aaff;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px rgba(138, 43, 226, 0.6);
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.gc-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  filter: brightness(0) saturate(100%) invert(26%) sepia(92%) saturate(4166%) hue-rotate(264deg) brightness(101%) contrast(101%);
+  transition: transform 0.3s;
+}
+
+.social-icon:hover .gc-icon {
+  transform: scale(1.2);
+}
+
+.location-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(138, 43, 226, 0.2);
+  color: #d1aaff;
+  border: 1px solid #8a2be2;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(128, 0, 128, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s, background-color 0.3s;
+  z-index: 10;
+}
+
+.location-box:hover {
+  transform: scale(1.05);
+  background-color: rgba(138, 43, 226, 0.4);
+}
+
+#contador-visitas {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  background-color: rgba(50, 0, 80, 0.8);
+  color: #e0b3ff;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  box-shadow: 0 0 12px #a64dff;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icono-svg {
+  width: 22px;
+  height: 22px;
+  animation: bouncing 1s infinite;
+}
+
+@keyframes bouncing {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+#contador-visitas span {
+  font-weight: bold;
+}
+
+#contador-visitas .visitas-counter {
+  font-size: 1.2rem;
+}
+
+.location-box {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  background-color: rgba(138, 43, 226, 0.2);
+  color: #d1aaff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(128, 0, 128, 0.4);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.location-box:hover {
+  transform: scale(1.05);
+  background-color: rgba(138, 43, 226, 0.4);
+}
+
+.location-img {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  width: 250px; /* Puedes ajustar el tamaño de la imagen según tus necesidades */
+}
+
+.location-box:hover .location-img {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
